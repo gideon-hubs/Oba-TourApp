@@ -99,12 +99,12 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in-delay-2">
                 <Link
                   to="/trips"
-                  className="bg-sky-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-sky-600 transition-all duration-300 flex items-center justify-center group shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+                  className="btn-primary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 flex items-center justify-center group shadow-xl hover:shadow-2xl"
                 >
                   Explore Trips
                   <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <button className="border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-white hover:text-slate-800 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+                <button className="border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-white hover:text-slate-800 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent">
                   Watch Video
                 </button>
               </div>
@@ -114,13 +114,13 @@ export default function HomePage() {
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 text-white p-2 sm:p-3 rounded-full transition-all duration-300 backdrop-blur-sm hover:scale-110"
+            className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 text-white p-2 sm:p-3 rounded-full transition-all duration-300 backdrop-blur-sm hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
           >
             <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 text-white p-2 sm:p-3 rounded-full transition-all duration-300 backdrop-blur-sm hover:scale-110"
+            className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 text-white p-2 sm:p-3 rounded-full transition-all duration-300 backdrop-blur-sm hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
           >
             <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
           </button>
@@ -165,7 +165,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             <div className="text-center p-6 sm:p-8 rounded-xl hover:shadow-lg transition-shadow duration-300">
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                <Users className="h-8 w-8 text-sky-500" />
+                <Users className="h-6 w-6 sm:h-8 sm:w-8 text-sky-500" />
               </div>
               <h3 className="text-lg sm:text-xl font-semibold text-slate-800 mb-3 sm:mb-4">Expert Guides</h3>
               <p className="text-sm sm:text-base text-slate-600">
@@ -175,7 +175,7 @@ export default function HomePage() {
             
             <div className="text-center p-6 sm:p-8 rounded-xl hover:shadow-lg transition-shadow duration-300">
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                <Shield className="h-8 w-8 text-orange-500" />
+                <Shield className="h-6 w-6 sm:h-8 sm:w-8 text-orange-500" />
               </div>
               <h3 className="text-lg sm:text-xl font-semibold text-slate-800 mb-3 sm:mb-4">Flexible Payments</h3>
               <p className="text-sm sm:text-base text-slate-600">
@@ -185,7 +185,7 @@ export default function HomePage() {
             
             <div className="text-center p-6 sm:p-8 rounded-xl hover:shadow-lg transition-shadow duration-300">
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                <Star className="h-8 w-8 text-green-500" />
+                <Star className="h-6 w-6 sm:h-8 sm:w-8 text-green-500" />
               </div>
               <h3 className="text-lg sm:text-xl font-semibold text-slate-800 mb-3 sm:mb-4">Curated Experiences</h3>
               <p className="text-sm sm:text-base text-slate-600">
@@ -208,7 +208,7 @@ export default function HomePage() {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {featuredTrips.map((trip) => (
-              <div key={trip.id} className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div key={trip.id} className="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
                 <div className="relative h-40 sm:h-48">
                   <img 
                     src={trip.images[0]} 
@@ -235,7 +235,7 @@ export default function HomePage() {
                     </div>
                     <Link
                       to={`/trips/${trip.id}`}
-                      className="bg-sky-500 text-white px-4 py-2 rounded-lg hover:bg-sky-600 transition-colors text-center text-sm sm:text-base"
+                      className="btn-primary text-sm sm:text-base px-4 py-2 text-center"
                     >
                       View Details
                     </Link>
@@ -248,7 +248,7 @@ export default function HomePage() {
           <div className="text-center mt-8 sm:mt-12">
             <Link
               to="/trips"
-              className="bg-slate-800 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-slate-700 transition-colors inline-flex items-center"
+              className="gradient-secondary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:opacity-90 transition-all duration-300 inline-flex items-center transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
             >
               View All Trips
               <ArrowRight className="h-5 w-5 ml-2" />
@@ -267,7 +267,7 @@ export default function HomePage() {
           </p>
           <Link
             to="/trips"
-            className="bg-white text-sky-600 px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-slate-50 transition-colors inline-flex items-center"
+            className="bg-white text-sky-600 px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-slate-50 transition-all duration-300 inline-flex items-center transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
           >
             Start Your Journey
             <ArrowRight className="h-5 w-5 ml-2" />

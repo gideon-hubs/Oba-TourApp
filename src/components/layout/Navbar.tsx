@@ -32,7 +32,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-8">
             <Link 
               to="/" 
-              className={`text-sm font-medium transition-colors ${
+              className={`text-sm font-medium transition-all duration-200 hover:scale-105 ${
                 isActive('/') ? 'text-sky-600' : 'text-slate-600 hover:text-sky-600'
               }`}
             >
@@ -42,7 +42,7 @@ export default function Navbar() {
             {(!user?.isAdmin) && (
               <Link 
                 to="/trips" 
-                className={`text-sm font-medium transition-colors ${
+                className={`text-sm font-medium transition-all duration-200 hover:scale-105 ${
                   isActive('/trips') ? 'text-sky-600' : 'text-slate-600 hover:text-sky-600'
                 }`}
               >
@@ -52,7 +52,7 @@ export default function Navbar() {
             {user && (
               <Link 
                 to="/dashboard" 
-                className={`text-sm font-medium transition-colors ${
+                className={`text-sm font-medium transition-all duration-200 hover:scale-105 ${
                   isActive('/dashboard') ? 'text-sky-600' : 'text-slate-600 hover:text-sky-600'
                 }`}
               >
@@ -62,7 +62,7 @@ export default function Navbar() {
             {user?.isAdmin && (
               <Link 
                 to="/admin" 
-                className={`text-sm font-medium transition-colors ${
+                className={`text-sm font-medium transition-all duration-200 hover:scale-105 ${
                   isActive('/admin') ? 'text-sky-600' : 'text-slate-600 hover:text-sky-600'
                 }`}
               >
@@ -77,7 +77,7 @@ export default function Navbar() {
               <div className="relative">
                 <button
                   onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                  className="flex items-center space-x-2 text-slate-600 hover:text-slate-800 transition-colors"
+                  className="flex items-center space-x-2 text-slate-600 hover:text-slate-800 transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 rounded-lg px-2 py-1"
                 >
                   <div className="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center">
                     <span className="text-white text-sm font-medium">
@@ -88,10 +88,10 @@ export default function Navbar() {
                 </button>
                 
                 {isUserMenuOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-slate-200 py-1 z-50">
+                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-large border border-slate-200 py-1 z-50 animate-slide-down">
                     <Link
                       to="/profile"
-                      className="flex items-center px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                      className="flex items-center px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 transition-colors duration-200"
                       onClick={() => setIsUserMenuOpen(false)}
                     >
                       <User className="h-4 w-4 mr-2" />
@@ -99,7 +99,7 @@ export default function Navbar() {
                     </Link>
                     <Link
                       to="/dashboard"
-                      className="flex items-center px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                      className="flex items-center px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 transition-colors duration-200"
                       onClick={() => setIsUserMenuOpen(false)}
                     >
                       <Settings className="h-4 w-4 mr-2" />
@@ -107,7 +107,7 @@ export default function Navbar() {
                     </Link>
                     <button
                       onClick={handleLogout}
-                      className="flex items-center w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50"
+                      className="flex items-center w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors duration-200"
                     >
                       <LogOut className="h-4 w-4 mr-2" />
                       Logout
@@ -118,7 +118,7 @@ export default function Navbar() {
             ) : (
               <Link
                 to="/auth"
-                className="bg-sky-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-sky-600 transition-colors"
+                className="btn-primary text-sm px-4 py-2"
               >
                 Sign In
               </Link>
@@ -128,7 +128,7 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-slate-600 hover:text-slate-800"
+            className="md:hidden text-slate-600 hover:text-slate-800 transition-colors duration-200 p-2 rounded-lg hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500"
           >
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -136,11 +136,11 @@ export default function Navbar() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-3 border-t border-slate-200 bg-white">
+          <div className="md:hidden py-3 border-t border-slate-200 bg-white animate-slide-down">
             <div className="flex flex-col space-y-2">
               <Link 
                 to="/" 
-                className={`px-3 py-2 text-sm font-medium transition-colors ${
+                className={`px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-lg mx-3 ${
                   isActive('/') ? 'text-sky-600' : 'text-slate-600'
                 }`}
                 onClick={() => setIsMenuOpen(false)}
@@ -151,7 +151,7 @@ export default function Navbar() {
               {(!user?.isAdmin) && (
                 <Link 
                   to="/trips" 
-                  className={`px-3 py-2 text-sm font-medium transition-colors ${
+                  className={`px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-lg mx-3 ${
                     isActive('/trips') ? 'text-sky-600' : 'text-slate-600'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
@@ -163,7 +163,7 @@ export default function Navbar() {
                 <>
                   <Link 
                     to="/dashboard" 
-                    className={`px-3 py-2 text-sm font-medium transition-colors ${
+                    className={`px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-lg mx-3 ${
                       isActive('/dashboard') ? 'text-sky-600' : 'text-slate-600'
                     }`}
                     onClick={() => setIsMenuOpen(false)}
@@ -172,7 +172,7 @@ export default function Navbar() {
                   </Link>
                   <Link 
                     to="/profile" 
-                    className={`px-3 py-2 text-sm font-medium transition-colors ${
+                    className={`px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-lg mx-3 ${
                       isActive('/profile') ? 'text-sky-600' : 'text-slate-600'
                     }`}
                     onClick={() => setIsMenuOpen(false)}
@@ -182,7 +182,7 @@ export default function Navbar() {
                   {user.isAdmin && (
                     <Link 
                       to="/admin" 
-                      className={`px-3 py-2 text-sm font-medium transition-colors ${
+                      className={`px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-lg mx-3 ${
                         isActive('/admin') ? 'text-sky-600' : 'text-slate-600'
                       }`}
                       onClick={() => setIsMenuOpen(false)}
@@ -192,7 +192,7 @@ export default function Navbar() {
                   )}
                   <button
                     onClick={handleLogout}
-                    className="px-3 py-2 text-sm font-medium text-red-600 text-left"
+                    className="px-3 py-2 text-sm font-medium text-red-600 text-left transition-colors duration-200 rounded-lg mx-3 hover:bg-red-50"
                   >
                     Logout
                   </button>
@@ -201,7 +201,7 @@ export default function Navbar() {
               {!user && (
                 <Link
                   to="/auth"
-                  className="mx-3 mt-2 bg-sky-500 text-white px-4 py-2 rounded-lg text-sm font-medium text-center"
+                  className="mx-3 mt-2 btn-primary text-sm px-4 py-2 text-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Sign In
